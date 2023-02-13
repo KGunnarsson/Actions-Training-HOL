@@ -1,0 +1,17 @@
+name: Workflow-1
+on:  
+  workflow_dispatch:
+    inputs:
+      Name:
+        description: input the name
+        required: true
+        default: kgunnarsson
+  schedule:
+          - cron: '*/15 6 6 * *'  
+jobs:  
+  echo-step:
+    runs-on: ubuntu-lates
+    steps:
+      - run : |
+          echo "hello  ${{inputs.Name}}"
+          
