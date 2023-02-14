@@ -1,11 +1,12 @@
 name: Matrix-Workflow
+on: workflow_dispatch
 jobs:
   matrix:
     name: matrix-job
     runs-on: ${{matrix.runner}}
     strategy:
-    matrix:
-     runner: [ubuntu-latest,windows]
+      matrix:
+        runner: [ubuntu-latest,windows]
     steps:
       - name: Running on ${{matrix.runner}}
         run: echo "hello from {matrix.runner}"
