@@ -22,6 +22,6 @@ jobs:
       - name: Running on ${{matrix.runner}}
         run: | 
           echo "hello from ${{matrix.runner}} "
-          sleep 10
+          sleep 15
 
   
