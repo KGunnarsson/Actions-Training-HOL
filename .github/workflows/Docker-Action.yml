@@ -1,5 +1,8 @@
 name: CI Build for Docker Action
 on:
+  issues:
+    types:
+      - opened
   push:
     branches: [ main ]
     paths: [ hello-world-docker-action/** ]
