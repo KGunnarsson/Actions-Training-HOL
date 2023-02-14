@@ -20,8 +20,12 @@ jobs:
       fail-fast: true
     steps:
       - name: Running on ${{matrix.runner}}
+<<<<<<< HEAD
         run: |
            echo "hello from the ${{{matrix.runner}} "
            
+=======
+        run: echo "hello from ${{matrix.runner}} "
+>>>>>>> 7a1ce99c8430771ad555d9ad417c259f79f58ce2
 
   
