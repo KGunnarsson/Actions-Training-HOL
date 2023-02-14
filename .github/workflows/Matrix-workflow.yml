@@ -7,7 +7,7 @@ concurrency:
   cancel-in-progress : true
   group: branch-${{github.ref}}
 jobs:
-  matrix:
+  matrix-os:
     name: matrix-job
     runs-on: ${{matrix.runner}}
 
@@ -21,12 +21,5 @@ jobs:
     steps:
       - name: Running on ${{matrix.runner}}
         run: echo "hello from the ${{{matrix.runner}} "
-
-  node_matrix:
-    strategy:
-      matrix:
-        version: [12, 14,16]
-    steps:
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.version }}
+  
+  
