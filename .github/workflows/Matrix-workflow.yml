@@ -13,7 +13,7 @@ jobs:
     
     strategy:
       matrix:
-        runner: [ubuntu-latest,windows-latest]
+        runner: [ubuntu-20.04,ubuntu-18.04,windows-2022, windows-2019,macos-latest]
       max-parallel: 1
       fail-fast: true
     steps:
