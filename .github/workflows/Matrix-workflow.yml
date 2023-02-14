@@ -22,3 +22,11 @@ jobs:
       - name: Running on ${{matrix.runner}}
         run: echo "hello from the ${{{matrix.runner}} "
 
+  node_matrix:
+    strategy:
+      matrix:
+        version: [12, 14,16]
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
