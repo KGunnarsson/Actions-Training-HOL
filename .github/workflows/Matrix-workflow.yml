@@ -7,7 +7,7 @@ concurrency:
   cancel-in-progress : true
   group: branch-${{github.ref}}
 jobs:
-  matrix-os:
+  matrix:
     name: matrix-job
     runs-on: ${{matrix.runner}}
 
