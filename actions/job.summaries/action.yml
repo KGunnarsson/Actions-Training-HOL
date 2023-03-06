@@ -23,4 +23,5 @@ runs:
           script: |
             await core.summary
             .addHeading('${{inputs.Heading}}')                          
+            .addLink(${{inputs.Link-Description}}, ${{inputs.Link}})
             .write()

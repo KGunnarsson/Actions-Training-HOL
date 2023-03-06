@@ -2,14 +2,7 @@ name: Job Summaries
 
 on: [workflow_dispatch]
 
-jobs:
-  job1:
-    runs-on: ubuntu-latest
-  
-    steps: 
-      - run: echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
-      - run: echo '### Love this feature! :medal_sports:' >> $GITHUB_STEP_SUMMARY
-
+jobs:  
   job2:
     runs-on: ubuntu-latest
   
@@ -21,5 +14,6 @@ jobs:
           Heading : github link
           Link-Description: find github here
           Link : https://github.com
+      - run: sleep 15
 
         
