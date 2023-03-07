@@ -1,0 +1,14 @@
+name: watch for jobs re-running
+description: do not allow jobs to be re-running
+
+runs:
+  using: composite
+  steps:       
+      - name: Write Summary from Action
+        run:  |
+          exit 1
+        shell: bash
+        if: ${{ github.run_attempt == '1' }}
+
+
+        

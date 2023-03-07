@@ -12,7 +12,6 @@ on:
         description: 'Environment to deploy to'
         type: environment
         required: true
-    
 
 jobs:
   Build:
@@ -35,6 +34,8 @@ jobs:
     needs: Build
     environment: dev
     steps:
+      - uses: actions/checkout@v3.3.0
+      - uses: ./actions/re-run-watch
       - run: |
           echo "🧪 Testing..."
           sleep 15
@@ -44,6 +45,8 @@ jobs:
     needs: Build
     environment: stg
     steps:
+      - uses: actions/checkout@v3.3.0
+      - uses: ./actions/re-run-watch
       - run: |
           echo "🧪 Testing..."
           sleep 15
@@ -55,6 +58,8 @@ jobs:
       url: https://writeabout.net
     if: github.event.inputs.environment == 'Prod'
     steps:
+      - uses: actions/checkout@v3.3.0
+      - uses: ./actions/re-run-watch
       - run: |
           echo "🚀 Step 1..."
           sleep 10
