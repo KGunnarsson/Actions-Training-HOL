@@ -3,15 +3,15 @@ on:
   push:  
   workflow_dispatch:
 
-concurrency:
-  cancel-in-progress : false
-  group: branch-${{github.ref}}
+# concurrency:
+#   cancel-in-progress : false
+#   group: branch-${{github.ref}}
 
 jobs:
   matrix:
-    concurrency:
-      cancel-in-progress : false
-      group: branch-${{github.ref}}-matrix
+    # concurrency:
+    #   cancel-in-progress : false
+    #   group: branch-${{github.ref}}-matrix
     
     name: matrix-job
     runs-on: ${{matrix.runner}}
@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         runner: [ubuntu-20.04,ubuntu-18.04,windows-2022, windows-2019,macos-latest]
-      max-parallel: 1
+      max-parallel: 5
       fail-fast: true
     steps:
       - name: Running on ${{matrix.runner}}
@@ -29,9 +29,9 @@ jobs:
   
   job-2:
     runs-on: ubuntu-latest
-    concurrency:
-      cancel-in-progress : false
-      group: branch-${{github.ref}}-job2
+    # concurrency:
+    #   cancel-in-progress : false
+    #   group: branch-${{github.ref}}-job2
     steps:
       
       - name: Running on ${{matrix.runner}}
