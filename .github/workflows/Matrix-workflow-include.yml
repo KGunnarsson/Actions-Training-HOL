@@ -32,14 +32,4 @@ jobs:
           echo "npm install -g npm@${{ matrix.npm }}"
           echo "using version ${{matrix.version}}"
       
-  job-2:
-    runs-on: ubuntu-latest
-    # concurrency:
-    #   cancel-in-progress : false
-    #   group: branch-${{github.ref}}-job2
-    steps:      
-      - name: Running on ${{matrix.runner}}
-        run: | 
-          echo "hello from ${{matrix.runner}} "
-          sleep 15
   
