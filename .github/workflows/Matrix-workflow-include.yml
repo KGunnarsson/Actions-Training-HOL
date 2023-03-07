@@ -1,0 +1,45 @@
+name: Matrix-Workflow-include
+on: 
+  push:  
+  workflow_dispatch:
+
+
+
+jobs:
+  matrix:    
+    name: matrix-job
+    runs-on: ${{matrix.runner}}
+    environment: testing-2
+    strategy:
+      matrix:
+        runner: [ubuntu-latest,windows-latest,macos-latest]
+        version: [10, 12, 14]
+        include : 
+          - runner: windows-latest
+            version : 16
+            npm: 6
+      max-parallel: 5
+      fail-fast: true
+    steps:
+      - name: Running on ${{matrix.runner}}
+        run: | 
+          echo "hello from ${{matrix.runner}} "
+          echo "using version ${{matrix.version}}"
+          sleep 15
+      - if: ${{ matrix.npm }}
+        run: |
+          echo "hello from ${{matrix.runner}} "
+          echo "npm install -g npm@${{ matrix.npm }}"
+          echo "using version ${{matrix.version}}"
+      
+  job-2:
+    runs-on: ubuntu-latest
+    # concurrency:
+    #   cancel-in-progress : false
+    #   group: branch-${{github.ref}}-job2
+    steps:      
+      - name: Running on ${{matrix.runner}}
+        run: | 
+          echo "hello from ${{matrix.runner}} "
+          sleep 15
+  
