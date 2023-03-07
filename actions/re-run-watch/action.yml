@@ -4,11 +4,11 @@ description: do not allow jobs to be re-running
 runs:
   using: composite
   steps:       
-      - name: Write Summary from Action
-        run:  |
+      - name: Check if job has ran before
+        run:  |          
           exit 1
         shell: bash
-        if: ${{ github.run_attempt == '1' }}
+        if: ${{ github.run_attempt != '1' }}
 
 
         
