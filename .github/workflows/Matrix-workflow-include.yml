@@ -1,10 +1,6 @@
 name: Matrix-Workflow-include
 on: 
-  push:  
   workflow_dispatch:
-
-
-
 jobs:
   matrix:    
     name: matrix-job
